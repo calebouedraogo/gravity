@@ -30,6 +30,24 @@
                 this.baseColor = Math.random() * 360;
                     this.color = `hsl(${this.baseColor}, 100%, 50%)`;
             }
+
+            update(mouseX, mouseY, repulsion) {
+                const dx = mouseX - this.x;
+                const dy = mouseY - this.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                const force = Math.min(15 / distance, 0.03) * (repulsion ? -1 : 1);
+
+                this.velocityX += dx * force;
+                this.velocityY += dy * force;
+                this.x += this.velocityX;
+                this.y += this.velocityY;
+
+                if (this.x < 0 || this.x > canvas.width) this.velocityX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.velocityY *= -1;
+
+                const speed = Math.sqrt(this.velocityX ** 2 + this.velocityX ** 2);
+                this.color = `hsl(${this.baseColor + speed * 20}, 100%, 50%)`;
+            }
         }
     </script>
 </body>
