@@ -61,7 +61,23 @@
         for (let i = 0; i < 250; i++) {
             particles.push(new Particle(Math.random() * canvas.width, Math.random() * canvas.height));
         }
-        
+
+        let mouseX = canvas.width / 2;
+        let mouseY = canvas.height / 2;
+        let repulsion = false;
+
+        window.addEventListener('mouseover', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Shift') repulsion = true;
+        });
+
+           window.addEventListener('keyup', (e) => {
+            if (e.key === 'Shift') repulsion = false;
+        });
     </script>
 </body>
 </html>
