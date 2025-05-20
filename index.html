@@ -8,5 +8,12 @@
 <body>
     <h1>Interactive Particle Gravity Simulation</h1>
     <canvas id="gravity-canvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById('gravity-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    </script>
 </body>
 </html>
