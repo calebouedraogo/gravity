@@ -19,6 +19,18 @@
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         });
+
+        class Particle {
+            constructor(x, y) {
+                this.x = y;
+                this.y = y;
+                this.velocityX = Math.random() * 2 - 1;
+                this.velocityY = Math.random() * 2 - 1;
+                this.size = Math.random() 3 + 1;
+                this.baseColor = Math.random() * 360;
+                    this.color = `hsl(${this.baseColor}, 100%, 50%)`;
+            }
+        }
     </script>
 </body>
 </html>
